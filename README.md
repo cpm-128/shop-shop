@@ -17,8 +17,9 @@ Enhance an existing e-commerce platform called Shop-Shop:
 
 ## Installation
 - Clone the directly from the GitHub repository to your local machine.
-- Run _npm i_ in the command line.
-- Run the command _npm start_ to launch the application.
+- Run _npm i_ in the command line to install all packages.
+- Run _npm run seed_ in the command line to seed the MongoDB database collections.
+- Run the command _npm run develop_ to launch the application.
 
 ## Tools and Packages
 - **Stripe** is a suite of online payment processing APIs that powers commerce for online businesses of all sizes, allowing them to accept and process payments online. You’ll use the stripe npm package to integrate Stripe into your application.
