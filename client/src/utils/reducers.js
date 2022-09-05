@@ -6,6 +6,9 @@ import {
     UPDATE_CURRENT_CATEGORY
 } from './actions';
 
+// Hook that will take in state and update through reducer()
+import { useReducer } from 'react';
+
 export const reducer = (state, action) => {
     switch (action.type) {
 
@@ -34,4 +37,9 @@ export const reducer = (state, action) => {
         default:
             return state;
     }
+};
+
+// export to use Hook
+export function useProductReducer(initialState) {
+    return useReducer(reducer, initialState);
 };
