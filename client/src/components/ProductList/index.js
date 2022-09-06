@@ -30,6 +30,16 @@ function ProductList() {
       data.products.forEach((product) => {
         idbPromise('products', 'put', product);
       });
+      // else if to check if 'loading' is undefined in the useQuery hook
+    } else if (!loading) {
+      // since offline, get all of the data about the products from the 'products' store so items can be loaded
+      idbPromise('products', 'get').then((products) => {
+        // use retrieved data to set global state of offline browsing
+        dispatch({
+          type: UPDATE_PRODUCTS,
+          products: products
+        });
+      });
     }
   }, [data, dispatch]);
 
