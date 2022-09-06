@@ -8,9 +8,13 @@ const StoreContext = createContext();
 const { Provider } = StoreContext;
 
 export const StoreProvider = ({ value = [], ... props}) => {
+
+    // initial state properties
     const [state, dispatch] = useProductReducer({
         products: [],
+        cart: [],
         categories: [],
+        cartOpen: false,
         currentCategory: ''
     });
 
