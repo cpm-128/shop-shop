@@ -22,8 +22,17 @@ function CategoryMenu() {
         type: UPDATE_CATEGORIES,
         categories: categoryData.categories
       });
+      // store categories to idb
       categoryData.categories.forEach(category => {
         idbPromise('categories', 'put', category);
+      });
+    // get data from idb if not loading
+    } else if (!loading) {
+      idbPromise('categories', 'get').then(categories => {
+        dispatch({
+          type: UPDATE_CATEGORIES,
+          categories: categories
+        });
       });
     }
   }, [categoryData, dispatch]);
